@@ -1845,7 +1845,7 @@ class GW1000U(Consumer):
             tout -= 32.
             tout *= 5. / 9
             pkt['temperature_out'] = tout # C
-            pkt['humidity_out'] = self.to_hum(s, 14) # %
+            pkt['humidity_out'] = int(s[14:16], 16) # %
             for key in list(pkt):
                 logdbg('{} {}'.format(key, pkt[key]))
             return pkt
